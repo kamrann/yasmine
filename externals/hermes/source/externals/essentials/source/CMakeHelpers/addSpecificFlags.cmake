@@ -59,7 +59,7 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR ("${CMAKE_CXX_COMPILER_ID}" STR
 
 	#Specifies standard behaviour under /Ze.
 	set(extra_flags "${extra_flags} /Zc:wchar_t /Zc:inline")
-		
+
 	#Enables additional security features and warnings.
 	set(extra_flags "${extra_flags} /sdl")
 
@@ -74,10 +74,10 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR ("${CMAKE_CXX_COMPILER_ID}" STR
 
 	#Treats warnings as errors.
 	if( "${MSVC_VERSION}" STRGREATER "1800" )
-		set(extra_flags "${extra_flags} /WX")
+		set(extra_flags "${extra_flags} /W3")
 	#else( "${MSVC_VERSION}" STRLESS "1900" )
 	else()
-		set(extra_flags "${extra_flags} /WX-")
+		set(extra_flags "${extra_flags} /W3")
 	endif()
 
 
