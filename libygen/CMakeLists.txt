@@ -26,9 +26,9 @@ include_directories("./../externals/essentials/source/essentials/include")
 include_directories("./../externals/genesis/source/genesis/include")
 
 
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND NOT "${CMAKE_CXX_SIMULATE_ID}" STREQUAL "MSVC"))
 	add_library(libygen ${LINK_TYPE} ${libygen_SRC})
-elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND "${CMAKE_CXX_SIMULATE_ID}" STREQUAL "MSVC"))
 	add_library(libygen STATIC ${libygen_SRC})
 endif()
 
@@ -42,11 +42,11 @@ use_pthread(link_libraries_list)
 
 add_library_for_linking(link_libraries_list libyasmine)
 
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND NOT "${CMAKE_CXX_SIMULATE_ID}" STREQUAL "MSVC"))
 	add_library_for_linking(link_libraries_list libessentials)
 	add_library_for_linking(link_libraries_list libgenesis)
 	add_library_for_linking(link_libraries_list libyasmine_model)
-elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND "${CMAKE_CXX_SIMULATE_ID}" STREQUAL "MSVC"))
 	add_library_for_linking(link_libraries_list essentials)
 	add_library_for_linking(link_libraries_list genesis)
 	add_library_for_linking(link_libraries_list yasmine_model)

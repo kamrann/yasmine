@@ -1,4 +1,4 @@
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND NOT "${CMAKE_CXX_SIMULATE_ID}" STREQUAL "MSVC"))
 	if (NOT TARGET libessentials)
 		message(STATUS "essentuals was not build before. It is build now.")
 		add_subdirectory(essentials)
@@ -11,7 +11,7 @@ else()
 endif()
 
 
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND NOT "${CMAKE_CXX_SIMULATE_ID}" STREQUAL "MSVC"))
 	if (NOT TARGET libhermes)
 		message(STATUS "hermes was not build before. It is build now.")
 		add_subdirectory(hermes)
@@ -24,7 +24,7 @@ else()
 endif()
 
 
-if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND NOT "${CMAKE_CXX_SIMULATE_ID}" STREQUAL "MSVC"))
 	if (NOT TARGET libgenesis)
 		message(STATUS "genesis was not build before. It is build now.")
 		add_subdirectory(genesis)

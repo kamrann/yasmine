@@ -6,7 +6,7 @@ endif()
 
 
 function(use_pthread varName)
-	if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+	if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" AND NOT "${CMAKE_CXX_SIMULATE_ID}" STREQUAL "MSVC"))
 		set(${varName} ${${varName}} pthread PARENT_SCOPE)
 	endif()
 endfunction()
