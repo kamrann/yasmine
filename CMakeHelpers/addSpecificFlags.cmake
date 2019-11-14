@@ -60,9 +60,6 @@ if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC" OR ("${CMAKE_CXX_COMPILER_ID}" STR
 	#Specifies standard behaviour under /Ze.
 	set(extra_flags "${extra_flags} /Zc:wchar_t /Zc:inline")
 
-	#Disable minimal rebuild.
-	set(extra_flags "${extra_flags} /Gm-")
-
 	#Enables additional security features and warnings.
 	set(extra_flags "${extra_flags} /sdl")
 
