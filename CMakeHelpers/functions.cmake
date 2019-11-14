@@ -6,8 +6,9 @@ endif()
 
 
 # @NOTE: Think this is causing failure when building with clang-cl, which identifies as Clang, but should use the MSVC runtime.
+# OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 function(use_pthread varName)
-	if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") # OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+	if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 		set(${varName} ${${varName}} pthread PARENT_SCOPE)
 	endif()
 endfunction()
